@@ -23,7 +23,7 @@ function SignIn() {
   const handleLogin = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/signin",
+        "https://backend-7aq8.onrender.com/api/auth/signin",
         {
           method: "POST",
           headers: {
@@ -62,7 +62,7 @@ function SignIn() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/signup",
+        "https://backend-7aq8.onrender.com/api/auth/signup",
         {
           method: "POST",
           headers: {

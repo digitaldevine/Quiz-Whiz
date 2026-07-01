@@ -11,7 +11,7 @@ function Leaderboard() {
     const fetchLeaderboard = async () => {
       try {
 
-        const res = await axios.get("http://localhost:5000/api/leaderboard");
+        const res = await axios.get("https://backend-7aq8.onrender.com/api/leaderboard");
 
         if (res.data.success) {
           setUsers(res.data.users);
