@@ -25,7 +25,7 @@ function CodeEditor({
             console.log("STEP 3");
 
             const res = await axios.post(
-                "https://backend-7aq8.onrender.com/api/code/run",
+                "https://backend-7aq8.onrender.com",
                 {
                     code,
                     language,
