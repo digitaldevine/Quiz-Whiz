@@ -22,7 +22,7 @@ function Hero() {
 
           <div className="hero-buttons">
             <Link to="/Challange">
-            <button className="primary-btn">Start Quiz</button>
+              <button className="primary-btn">Start Quiz</button>
             </Link>
             <Link to="/quiz">
               <button className="secondary-btn">
@@ -49,11 +49,10 @@ function Hero() {
 
       <section className="tech-section">
         <div className="tech-card">
-          <div className="icon">🌐</div>
-          <h3>HTML</h3>
+          <div className="icon">⚡</div>
+          <h3>TypeScript</h3>
           <p>
-            Learn the foundation of every website by mastering
-            page structure and content.
+            Learning TypeScript — step by step
           </p>
         </div>
 
