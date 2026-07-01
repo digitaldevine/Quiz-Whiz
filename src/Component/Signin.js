@@ -19,7 +19,7 @@ function SignIn() {
     confirmPassword: ""
   });
 
-  // Login
+  // LOGIN
   const handleLogin = async () => {
     try {
       const response = await fetch(
@@ -35,14 +35,16 @@ function SignIn() {
 
       const data = await response.json();
 
-      if (data.success) {
+      if (data.success && data.token) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
 
         alert("Login Successful");
+
+        setIsLogin(false);
         navigate("/profile");
       } else {
-        alert(data.message);
+        alert(data.message || "Login failed");
       }
     } catch (err) {
       console.log(err);
@@ -50,7 +52,7 @@ function SignIn() {
     }
   };
 
-  // Signup
+  // SIGNUP
   const handleSignup = async () => {
     if (signupData.password !== signupData.confirmPassword) {
       alert("Passwords do not match");
@@ -75,25 +77,28 @@ function SignIn() {
 
       const data = await response.json();
 
-      if (data.success) {
+      if (data.success && data.token) {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
 
         alert("Account Created Successfully");
 
+        setIsLogin(true);
         navigate("/profile");
       } else {
-        alert(data.message);
+        alert(data.message || "Signup failed");
       }
     } catch (err) {
       console.log(err);
       alert("Unable to connect to server.");
     }
   };
+
   return (
     <section className="signin">
       <div className="signin-card">
 
+        {/* Tabs */}
         <div className="tabs">
           <button
             className={isLogin ? "active" : ""}
@@ -110,6 +115,7 @@ function SignIn() {
           </button>
         </div>
 
+        {/* LOGIN FORM */}
         {isLogin ? (
           <div className="form-content">
 
@@ -120,10 +126,7 @@ function SignIn() {
               placeholder="Email Address"
               value={loginData.email}
               onChange={(e) =>
-                setLoginData({
-                  ...loginData,
-                  email: e.target.value
-                })
+                setLoginData({ ...loginData, email: e.target.value })
               }
             />
 
@@ -132,26 +135,19 @@ function SignIn() {
               placeholder="Password"
               value={loginData.password}
               onChange={(e) =>
-                setLoginData({
-                  ...loginData,
-                  password: e.target.value
-                })
+                setLoginData({ ...loginData, password: e.target.value })
               }
             />
 
-            <p className="forgot">
-              Forgot Password?
-            </p>
+            <p className="forgot">Forgot Password?</p>
 
-            <button
-              className="submit-btn"
-              onClick={handleLogin}
-            >
+            <button className="submit-btn" onClick={handleLogin}>
               Login
             </button>
 
           </div>
         ) : (
+          /* SIGNUP FORM */
           <div className="form-content">
 
             <h2>Create Account 🚀</h2>
@@ -161,10 +157,7 @@ function SignIn() {
               placeholder="Full Name"
               value={signupData.username}
               onChange={(e) =>
-                setSignupData({
-                  ...signupData,
-                  username: e.target.value
-                })
+                setSignupData({ ...signupData, username: e.target.value })
               }
             />
 
@@ -173,10 +166,7 @@ function SignIn() {
               placeholder="Email Address"
               value={signupData.email}
               onChange={(e) =>
-                setSignupData({
-                  ...signupData,
-                  email: e.target.value
-                })
+                setSignupData({ ...signupData, email: e.target.value })
               }
             />
 
@@ -185,10 +175,7 @@ function SignIn() {
               placeholder="Password"
               value={signupData.password}
               onChange={(e) =>
-                setSignupData({
-                  ...signupData,
-                  password: e.target.value
-                })
+                setSignupData({ ...signupData, password: e.target.value })
               }
             />
 
@@ -204,10 +191,7 @@ function SignIn() {
               }
             />
 
-            <button
-              className="submit-btn"
-              onClick={handleSignup}
-            >
+            <button className="submit-btn" onClick={handleSignup}>
               Sign Up
             </button>
 
