@@ -23,7 +23,7 @@ function SignIn() {
   const handleLogin = async () => {
     try {
       const response = await fetch(
-        "https://backend-7aq8.onrender.com/api/auth/signup",
+        "https://backend-7aq8.onrender.com/api/auth/signin",
         {
           method: "POST",
           headers: {
@@ -40,11 +40,8 @@ function SignIn() {
         localStorage.setItem("user", JSON.stringify(data.user));
 
         alert("Login Successful");
-
         navigate("/profile");
-      }
-
-      else {
+      } else {
         alert(data.message);
       }
     } catch (err) {
@@ -62,7 +59,7 @@ function SignIn() {
 
     try {
       const response = await fetch(
-        "https://backend-7aq8.onrender.com/api/auth/signin",
+        "https://backend-7aq8.onrender.com/api/auth/signup",
         {
           method: "POST",
           headers: {
@@ -93,7 +90,6 @@ function SignIn() {
       alert("Unable to connect to server.");
     }
   };
-
   return (
     <section className="signin">
       <div className="signin-card">
