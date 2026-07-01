@@ -1,0 +1,97 @@
+.editor-wrapper {
+  margin-top: 20px;
+  width: 100%;
+}
+
+/* New Layout */
+.editor-layout {
+  display: flex;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.editor-section {
+  flex: 2;
+  min-width: 0;
+}
+
+.output-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.run-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  display: block;
+  margin-left: auto;
+}
+
+.run-btn:hover {
+  background: #1d4ed8;
+}
+
+.output-box {
+  margin-top: 0;
+  background: #111827;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-x: auto;
+  min-height: 500px;
+}
+
+.output-box pre {
+  color: #22c55e;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.95rem;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .editor-layout {
+    flex-direction: column;
+  }
+
+  .run-btn {
+    width: 100%;
+    padding: 14px;
+  }
+
+  .output-box {
+    padding: 16px;
+    min-height: 200px;
+    margin-top: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .editor-wrapper {
+    margin-top: 15px;
+  }
+
+  .run-btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+
+  .output-box {
+    padding: 12px;
+    border-radius: 8px;
+    min-height: 180px;
+  }
+
+  .output-box pre {
+    font-size: 0.85rem;
+  }
+}

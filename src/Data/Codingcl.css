@@ -1,0 +1,164 @@
+.quiz-containers {
+  max-width: 1400px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Main Layout */
+.quiz-container {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+/* Left Side */
+.left-section {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Right Side */
+.right-section {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  min-height: 700px;
+}
+
+.right-section h3 {
+  margin-bottom: 15px;
+  color: #111827;
+}
+
+.output-box {
+  background: #0f172a;
+  color: #22c55e;
+  border-radius: 10px;
+  padding: 15px;
+  min-height: 600px;
+  overflow: auto;
+  font-family: Consolas, monospace;
+  white-space: pre-wrap;
+  transform: translateY(60px);
+}
+
+/* Question */
+.question-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+}
+
+.question-box h2 {
+  font-size: 22px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.question-box p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* MCQ */
+.option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.option-btn {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: .3s;
+  text-align: left;
+}
+
+.option-btn:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* Code */
+.code-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.code-section > div {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Navigation */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 15px;
+}
+
+.prev-btn,
+.next-btn {
+  padding: 12px 30px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: #1d4ed8;
+}
+
+.prev-btn:disabled,
+.next-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  .quiz-container {
+    flex-direction: column;
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+  }
+
+  .right-section {
+    min-height: auto;
+  }
+
+  .output-box {
+    min-height: 220px;
+    transform: translateY(-60px);
+  }
+
+  .navigation-buttons {
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .prev-btn,
+  .next-btn {
+    width: 48%;
+  }
+}
